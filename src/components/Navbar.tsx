@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineCloseCircle, AiOutlineDown } from "react-icons/ai";
 
@@ -31,7 +31,7 @@ function Navbar({}): JSX.Element {
         className={`bg-yellow-100 flex text-lg items-center justify-between
         px-10 py-4`}
       >
-        <p>Logo</p>
+        <NavLink to="/">Logo</NavLink>
         {isDesktop ? (
           <>
             <div className="flex w-full px-12 gap-9">
