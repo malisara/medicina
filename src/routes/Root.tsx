@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom";
 import AboveNav from "../components/AboveNav";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-type Props = {};
-
-function Root({}: Props) {
+function Root({}): JSX.Element {
   return (
     <>
       <AboveNav />
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 }
