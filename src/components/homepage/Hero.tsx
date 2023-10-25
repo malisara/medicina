@@ -3,14 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-import beeOne from "../assets/beeOne.jpg";
-import beeTwo from "../assets/beeTwo.jpg";
-import honeyOne from "../assets/honeyOne.jpg";
-import honeyTwo from "../assets/honeyTwo.jpg";
+import beeOne from "../../assets/beeOne.jpg";
+import beeTwo from "../../assets/beeTwo.jpg";
+import honeyOne from "../../assets/honeyOne.jpg";
+import honeyTwo from "../../assets/honeyTwo.jpg";
 
 const flexCenter = "flex items-center justify-center";
 export const imageCover = "object-cover w-full h-full";
-const indicatorStyle = "bg-gray-400 w-3 h-3 rounded-full";
 
 const heroImages = [
   //todo change dummy text
@@ -120,8 +119,8 @@ function Hero(): JSX.Element {
                             <p
                               id={`sliderBtn-${index}`}
                               aria-current={index === shownImage}
-                              className={`[&[aria-current='true']]:bg-white 
-                            ${indicatorStyle}`}
+                              className="[&[aria-current='true']]:bg-white 
+                              bg-gray-400 w-3 h-3 rounded-full"
                               key={index}
                             ></p>
                           )
