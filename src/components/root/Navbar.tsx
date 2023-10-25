@@ -1,9 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { AiOutlineCloseCircle, AiOutlineDown } from "react-icons/ai";
+import {
+  AiOutlineCloseCircle,
+  AiOutlineDown,
+  AiOutlineRight,
+} from "react-icons/ai";
+import { RxDotFilled } from "react-icons/rx";
 
-import useMediaQuery from "../hooks/useMediaQuery";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const urls = [
   { title: "o nas", url: "o-nas" },
@@ -11,9 +16,16 @@ const urls = [
   //   { title: "kontakt", url: "kontakt" },
 ];
 
+//TODO on hover
+//Dropdown div style
+//Dropdown close logic
+
 const itemUrls = [
-  { title: "med", url: "med" },
-  { title: "cvetni prah", url: "cvetni_prah" },
+  { title: "Cvetlični med", url: "med" },
+  { title: "Cvetni prah", url: "cvetni_prah" },
+  { title: "Sveče", url: "svece" },
+  { title: "Vosek", url: "vosek" },
+  { title: "Čebelje družine", url: "cebelje_druzine" },
 ];
 
 function Navbar({}): JSX.Element {
@@ -47,7 +59,8 @@ function Navbar({}): JSX.Element {
                 {openSubMenu && (
                   <div
                     className="absolute top-full left-0 mt-3 border z-10
-                   border-gray-50 shadow-lg bg-yellow-100 flex flex-col"
+                   border-gray-50 shadow-lg bg-yellow-100 flex flex-col
+                   divide-y divide-gray-300 rounded-lg w-44"
                   >
                     {itemUrls.map((item) => (
                       <NavLink
@@ -77,31 +90,47 @@ function Navbar({}): JSX.Element {
         <>
           <div
             className="h-[100%] bg-yellow-100 w-full fixed top-0 flex
-          flex-col px-10 pt-[4.5rem] z-10"
+          flex-col px-16 pt-[4.5rem] z-10"
           >
             <button onClick={() => setMobileNavOpen(false)}>
               <AiOutlineCloseCircle className="float-right" />
             </button>
-
-            <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col items-start gap-10">
               {urls.map((url) => (
                 <NavLink to={url.url} key={url.title}>
                   {url.title.toUpperCase()}
                 </NavLink>
               ))}
             </div>
-
-            <button
-              onClick={() => setOpenSubMenu(!openSubMenu)}
-              className="mt-10"
-            >
-              IZDELKI <AiOutlineDown className="inline" />
-            </button>
+            {openSubMenu ? (
+              <button
+                onClick={() => setOpenSubMenu(!openSubMenu)}
+                className="mt-10 flex justify-start items-center"
+              >
+                IZDELKI <AiOutlineRight className="inline ml-2" />
+              </button>
+            ) : (
+              <button
+                onClick={() => setOpenSubMenu(!openSubMenu)}
+                className="mt-10 flex justify-start items-center"
+              >
+                IZDELKI <AiOutlineDown className="inline ml-2" />
+              </button>
+            )}
 
             {openSubMenu && (
-              <div className="mx-auto mt-4 flex flex-col gap-3 italic">
+              <div
+                className="mt-3 mx-auto gap-3
+               flex flex-col w-44"
+              >
                 {itemUrls.map((item) => (
-                  <NavLink to={item.url} className="py-1" key={item.title}>
+                  <NavLink
+                    to={item.url}
+                    className="px-2 py-3 hover:bg-yellow-200"
+                    key={item.title}
+                    onClick={() => setOpenSubMenu(false)}
+                  >
+                    <RxDotFilled className="inline mr-1" />
                     {item.title}
                   </NavLink>
                 ))}
