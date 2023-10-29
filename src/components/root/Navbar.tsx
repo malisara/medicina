@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
   AiOutlineCloseCircle,
@@ -9,6 +9,7 @@ import {
 import { RxDotFilled } from "react-icons/rx";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
+import { products_urls } from "../../utils/urls";
 
 const urls = [
   { title: "o nas", url: "o-nas" },
@@ -16,32 +17,33 @@ const urls = [
   //   { title: "kontakt", url: "kontakt" },
 ];
 
-//TODO on hover
-//Dropdown div style
-//Dropdown close logic
-
-const itemUrls = [
-  { title: "Cvetlični med", url: "med" },
-  { title: "Cvetni prah", url: "cvetni_prah" },
-  { title: "Sveče", url: "svece" },
-  { title: "Vosek", url: "vosek" },
-  { title: "Čebelje družine", url: "cebelje_druzine" },
-];
-
 function Navbar({}): JSX.Element {
   const isDesktop = useMediaQuery("(min-width: 1060px)");
   const [mobileNavIsOpen, setMobileNavOpen] = useState<boolean>(false);
   const [openSubMenu, setOpenSubMenu] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setOpenSubMenu(false);
   }, [isDesktop]);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setOpenSubMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+
   return (
-    <nav className="top-[3rem] w-full">
+    <nav className="top-[3rem] w-full" ref={ref}>
       <div
-        className={`bg-yellow-100 flex text-lg items-center justify-between
-        px-10 py-4`}
+        className="bg-secondaryPurple flex text-lg items-center
+         text-white justify-between px-10 py-4"
       >
         <NavLink to="/">Logo</NavLink>
         {isDesktop ? (
@@ -59,17 +61,18 @@ function Navbar({}): JSX.Element {
                 {openSubMenu && (
                   <div
                     className="absolute top-full left-0 mt-3 border z-10
-                   border-gray-50 shadow-lg bg-yellow-100 flex flex-col
+                   border-gray-50 shadow-lg bg-secondaryPurple flex flex-col
                    divide-y divide-gray-300 rounded-lg w-44"
                   >
-                    {itemUrls.map((item) => (
+                    {products_urls.map((products_url) => (
                       <NavLink
-                        to={item.url}
-                        className="px-2 py-3 hover:bg-yellow-200"
-                        key={item.title}
+                        to={products_url.url}
+                        className="px-2 py-3 hover:bg-titleColor 
+                        hover:bg-opacity-60 "
+                        key={products_url.title}
                         onClick={() => setOpenSubMenu(false)}
                       >
-                        {item.title}
+                        {products_url.title}
                       </NavLink>
                     ))}
                   </div>
@@ -89,8 +92,8 @@ function Navbar({}): JSX.Element {
       {!isDesktop && mobileNavIsOpen && (
         <>
           <div
-            className="h-[100%] bg-yellow-100 w-full fixed top-0 flex
-          flex-col px-16 pt-[4.5rem] z-10"
+            className="h-[100%] bg-secondaryPurple w-full fixed top-0 flex
+          flex-col px-16 pt-[4.5rem] z-10 text-white"
           >
             <button onClick={() => setMobileNavOpen(false)}>
               <AiOutlineCloseCircle className="float-right" />
@@ -123,15 +126,15 @@ function Navbar({}): JSX.Element {
                 className="mt-3 mx-auto gap-3
                flex flex-col w-44"
               >
-                {itemUrls.map((item) => (
+                {products_urls.map((products_url) => (
                   <NavLink
-                    to={item.url}
-                    className="px-2 py-3 hover:bg-yellow-200"
-                    key={item.title}
+                    to={products_url.url}
+                    className="px-2 py-3"
+                    key={products_url.title}
                     onClick={() => setOpenSubMenu(false)}
                   >
                     <RxDotFilled className="inline mr-1" />
-                    {item.title}
+                    {products_url.title}
                   </NavLink>
                 ))}
               </div>
