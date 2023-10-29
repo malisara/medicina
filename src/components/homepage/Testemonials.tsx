@@ -49,13 +49,16 @@ function Testemonials(): JSX.Element {
 
   return (
     <div>
-      <div className="mb-[3rem] text-center text-3xl text-yellow-500">
+      <div
+        className="mb-[3rem] text-center mt-[10rem]
+       text-3xl font-bold text-secondaryPurple"
+      >
         STRANKE PRAVIJO:
       </div>
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
         <div>
           <ImQuotesLeft
-            className="text-yellow-500 text-[3rem] 
+            className="text-secondaryPurple text-[3rem] 
           absolute top-0 riht-0"
           />
         </div>
@@ -65,7 +68,7 @@ function Testemonials(): JSX.Element {
         </div>
         <div>
           <ImQuotesRight
-            className="text-yellow-500 text-[3rem] 
+            className="text-secondaryPurple text-[3rem] 
           absolute right-0 bottom-0"
           />
         </div>
@@ -75,8 +78,8 @@ function Testemonials(): JSX.Element {
           {Array.from({ length: reviews.length }, (_, index: number) => (
             <p
               aria-current={index === reviewToDisplay.id}
-              className="[&[aria-current='true']]:bg-yellow-500 
-            bg-gray-400 w-3 h-3 rounded-full"
+              className="[&[aria-current='true']]:bg-secondaryPurple 
+            bg-gray-300 w-3 h-3 rounded-full"
               key={index}
             />
           ))}
