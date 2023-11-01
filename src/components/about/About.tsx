@@ -43,7 +43,7 @@ const aboutText = [
 
 function About(): JSX.Element {
   return (
-    <div className="mt-[5rem] flex-col w-[90%] md:w-[60%] mx-auto">
+    <div className="mt-[2rem] flex-col w-[85%] md:w-[60%] mx-auto">
       <img
         src={AboutImg}
         className="h-[20rem] md:h-[40rem] w-full object-cover"
