@@ -1,4 +1,5 @@
 import AboutImg from "../assets/bee_about.jpg";
+import Contact from "./Contact";
 
 const aboutText = [
   {
@@ -47,10 +48,8 @@ function About(): JSX.Element {
         src={AboutImg}
         className="h-[20rem] md:h-[40rem] w-full object-cover"
       />
-      <div
-        className="border border-secondaryPurple
-        mt-10 p-10 md:text-justify bg-primaryPurple"
-      >
+
+      <div className="md:text-justify mt-[4rem]">
         <div className="text-center text-6xl">O nas</div>
 
         {aboutText.map((paragraph) => (
@@ -62,6 +61,8 @@ function About(): JSX.Element {
           </div>
         ))}
       </div>
+
+      <Contact />
     </div>
   );
 }
