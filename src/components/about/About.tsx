@@ -1,4 +1,4 @@
-import AboutImg from "../assets/bee_about.jpg";
+import AboutImg from "../../assets/bee_about.jpg";
 import Contact from "./Contact";
 
 const aboutText = [
@@ -52,10 +52,11 @@ function About(): JSX.Element {
       <div className="md:text-justify mt-[4rem]">
         <div className="text-center text-6xl">O nas</div>
 
-        {aboutText.map((paragraph) => (
+        {aboutText.map((paragraph, i) => (
           <div
             className="mx-auto text-xl leading-8 
           md:leading-[3rem] mt-[2rem]"
+            key={i}
           >
             {paragraph.text}
           </div>
