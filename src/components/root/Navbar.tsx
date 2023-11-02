@@ -100,7 +100,11 @@ function Navbar({}): JSX.Element {
             </button>
             <div className="flex flex-col items-start gap-10">
               {urls.map((url) => (
-                <NavLink to={url.url} key={url.title}>
+                <NavLink
+                  to={url.url}
+                  key={url.title}
+                  onClick={() => setMobileNavOpen(false)}
+                >
                   {url.title.toUpperCase()}
                 </NavLink>
               ))}
