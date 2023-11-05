@@ -9,7 +9,7 @@ import honeyOne from "../../assets/honeyOne.jpg";
 import honeyTwo from "../../assets/honeyTwo.jpg";
 
 const flexCenter = "flex items-center justify-center";
-export const imageCover = "object-cover w-full h-full";
+export const imageCover = "object-cover w-full h-full rounded-md";
 
 const heroImages = [
   //todo change dummy text
@@ -103,8 +103,8 @@ function Hero(): JSX.Element {
                          lg:gap-10 ${flexCenter}`}
                     >
                       <div
-                        className="bg-yellow-100 bg-opacity-90 p-6 rounded-sm
-                        text-md w-1/2 md:w-fit md:text-xl"
+                        className="bg-primaryPurple bg-opacity-90 p-6 
+                        rounded-sm text-md w-1/2 md:w-fit md:text-xl"
                       >
                         {hero.text}.
                       </div>

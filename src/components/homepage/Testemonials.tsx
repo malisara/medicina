@@ -48,11 +48,8 @@ function Testemonials(): JSX.Element {
   }, [currentReview]);
 
   return (
-    <div>
-      <div
-        className="mb-[3rem] text-center mt-[10rem]
-       text-3xl font-bold text-secondaryPurple"
-      >
+    <div className="mb-[15rem]">
+      <div className="text-center text-3xl font-bold text-secondaryPurple">
         STRANKE PRAVIJO:
       </div>
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
