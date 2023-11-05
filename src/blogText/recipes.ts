@@ -2,7 +2,7 @@ import Biscuit from "../assets/blog/biscuits.jpg";
 import Chicken from "../assets/blog/chicken.jpg";
 import Cookies from "../assets/blog/cookies.jpg";
 
-export const recepies = [
+export const recipes = [
   {
     title: "Medeni ovseni piškoti",
     image: Cookies,
