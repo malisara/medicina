@@ -1,10 +1,19 @@
+import { useState } from "react";
 import useMediaQuery from "../../hooks/useMediaQuery";
 import { imageCover } from "../homepage/Hero";
+import SizesAndPrices from "./SizesAndPrices";
+
+const sizePriceData = [
+  //temp
+  { index: 0, size: "500ml", price: 10 },
+  { index: 1, size: "1000ml", price: 15 },
+];
 
 type Props = { title: string; text: JSX.Element[]; imageSrc: string };
 
 function DetailView({ title, text, imageSrc }: Props): JSX.Element {
   const isDesktop = useMediaQuery("(min-width: 1060px)");
+  const [price, setPrice] = useState<number>(0);
 
   return (
     <div>
@@ -26,7 +35,11 @@ function DetailView({ title, text, imageSrc }: Props): JSX.Element {
           flex flex-col items-end"
           >
             <p className="py-[4rem] text-6xl">{title}</p>
-            <p className="text-5xl opacity-80">10€</p>
+            <p className="text-5xl opacity-80">{price}€</p>
+            <SizesAndPrices
+              handlePriceChange={setPrice}
+              sizePriceData={sizePriceData}
+            />
 
             <div className="mt-16 w-[70%] text-justify">
               {text.map((paragraph, i) => (
