@@ -1,44 +1,41 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+import { SiZePriceType } from "../../typeAliases";
+
+const activeBtnStyle =
+  "bg-secondaryPurple text-white hover:bg-opacity-90 hover:border-white";
+const inactiveBtnStyle =
+  "border-gray-300 hover:bg-opacity-90\
+  hover:bg-secondaryPurple hover:text-white";
 
 type Props = {
-  sizePriceData: SiZePriceType[];
-  handlePriceChange: React.Dispatch<React.SetStateAction<number>>;
-};
-
-type SiZePriceType = {
-  index: number;
-  size: string;
-  price: number;
+  sizesPricesData: SiZePriceType[];
+  handleSizeChange: React.Dispatch<React.SetStateAction<number>>;
 };
 
 function SizesAndPrices({
-  handlePriceChange,
-  sizePriceData,
+  sizesPricesData,
+  handleSizeChange,
 }: Props): JSX.Element {
-  const [chosenBtnIndex, setChosenBtnIndex] = useState<number>(0);
-  const activeBtnStyle =
-    "bg-secondaryPurple text-white\
-   hover:bg-opacity-90 hover:border-white";
-  const inactiveBtnStyle =
-    "border-secondaryPurple hover:bg-opacity-90\
-   hover:bg-secondaryPurple hover:text-white";
+  const [chosenSizeIndex, setChosenSizeIndex] = useState<number>(0);
+
   function handleClick(element: SiZePriceType): void {
-    setChosenBtnIndex(element.index);
-    handlePriceChange(element.price);
+    setChosenSizeIndex(element.index);
+    handleSizeChange(element.price);
   }
 
   useEffect(() => {
     //set default value on load
-    handlePriceChange(sizePriceData[0].price);
+    handleSizeChange(sizesPricesData[0].price);
   }, []);
 
   return (
-    <div className="flex gap-5 mt-8">
-      {sizePriceData.map((el) => (
+    <div className="flex gap-4 mt-8">
+      {sizesPricesData.map((el) => (
         <button
           className={`${
-            chosenBtnIndex === el.index ? activeBtnStyle : inactiveBtnStyle
-          } border  p-2 mt-3 text-lg rounded-lg`}
+            chosenSizeIndex === el.index ? activeBtnStyle : inactiveBtnStyle
+          } border p-2 mt-3 w-[5rem] text-lg rounded-sm`}
           key={el.index}
           onClick={() => handleClick(el)}
         >
