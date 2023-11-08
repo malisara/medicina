@@ -30,7 +30,7 @@ function SizesAndPrices({
   }, []);
 
   return (
-    <div className="flex gap-4 mt-8">
+    <div className="flex gap-4 mt-4 md:mt-8">
       {sizesPricesData.map((el) => (
         <button
           className={`${
