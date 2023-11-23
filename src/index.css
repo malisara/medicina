@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 
 @tailwind base;
@@ -9,9 +9,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  font-family: 'Poppins', sans-serif;
-  color: #98b66e;
-  background-color: #f8fafc; 
+  font-family: 'Roboto', sans-serif;
+  /* color: #98b66e; */
+  color:rgb(83, 82, 82);
+  /* color: #373d3b; */
+  /* @apply bg-primaryPurple; */
 
 }
 
@@ -20,8 +22,16 @@ html{
   width: 100%;
 }
 
-/* palette idea */
-/* https://www.canva.com/colors/color-palettes/zesty-macaroons/ */
+h2{
+  font-size: 2rem;
+  padding: 2rem 0;
+  text-align: center;
+}
 
-/* bright yellow : f9d876 */
+h1{
+  font-size: 3.5rem;
+  padding: 6rem 10rem;
+  text-align: end;
+}
+
 
