@@ -20,18 +20,18 @@ function Contact(): JSX.Element {
           </p>
           <div className={`${contactDivStyle}`}>
             <AiOutlinePhone />
-            <p>Phone</p>
+            <p>0123456789</p>
           </div>
           <div className={`${contactDivStyle}`}>
             <AiOutlineMail />
-            <p>Mail</p>
+            <p>fake.mail@mail.com</p>
           </div>
           <a
             href="#"
             className={`${contactDivStyle} hover:text-secondaryPurple w-fit`}
           >
             <BsFacebook />
-            Fb
+            @ourPage
           </a>
           <a
             href="#"
