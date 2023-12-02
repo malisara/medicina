@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 //TODO make mt component
@@ -12,7 +13,7 @@ const reviews = [
   },
   {
     id: 1,
-    customer: "Katja L",
+    customer: "Katja L.",
     comment:
       "Nikoli nisem verjela v moč čebeljega cvetnega prahu, dokler nisem\
       poskusila Medičina izdelka. Ima pozitiven vpliv na mojo energijo\
@@ -43,7 +44,7 @@ function Testemonials(): JSX.Element {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrentReview((prev) => (prev + 1) % reviews.length);
-    }, 7000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [currentReview]);
 
@@ -52,37 +53,40 @@ function Testemonials(): JSX.Element {
       <div className="text-center text-3xl font-bold text-secondaryPurple">
         STRANKE PRAVIJO:
       </div>
+
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
-        <div>
-          <ImQuotesLeft
-            className="text-secondaryPurple text-[3rem] 
+        <ImQuotesLeft
+          className="text-secondaryPurple text-[3rem] 
           absolute top-0 riht-0"
-          />
-        </div>
-        <div className="px-10 py-[5rem] italic text-center text-lg">
-          {reviewToDisplay.comment}
-          <div className="mt-5">{reviewToDisplay.customer}</div>
-        </div>
-        <div>
-          <ImQuotesRight
-            className="text-secondaryPurple text-[3rem] 
+        />
+        <motion.div
+          key={currentReview}
+          initial={{ opacity: 0, x: -70 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="px-10 py-[5rem] italic text-center text-lg">
+            {reviewToDisplay.comment}
+            <div className="mt-5 font-semibold">{reviewToDisplay.customer}</div>
+          </div>
+        </motion.div>
+        <ImQuotesRight
+          className="text-secondaryPurple text-[3rem] 
           absolute right-0 bottom-0"
-          />
-        </div>
+        />
+      </div>
 
-        {/* indicators */}
-        <div className="flex justify-center gap-3">
-          {Array.from({ length: reviews.length }, (_, index: number) => (
-            <p
-              aria-current={index === reviewToDisplay.id}
-              className="[&[aria-current='true']]:bg-secondaryPurple 
+      {/* indicators */}
+      <div className="flex justify-center gap-3">
+        {Array.from({ length: reviews.length }, (_, index: number) => (
+          <p
+            aria-current={index === reviewToDisplay.id}
+            className="[&[aria-current='true']]:bg-secondaryPurple 
             bg-gray-300 w-3 h-3 rounded-full"
-              key={index}
-            />
-          ))}
-        </div>
-
-        <div></div>
+            key={index}
+          />
+        ))}
       </div>
     </div>
   );
