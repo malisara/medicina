@@ -9,12 +9,12 @@ function AboveNav(): JSX.Element {
       >
         <div className="flex items-center gap-2">
           <AiOutlinePhone />
-          <p>telefon</p>
+          <p>123456789</p>
         </div>
 
         <div className="flex items-center gap-2">
           <AiOutlineMail />
-          <p>mail</p>
+          <p>fake.mail@mail.com</p>
         </div>
       </div>
     </>
