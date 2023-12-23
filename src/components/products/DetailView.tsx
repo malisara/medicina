@@ -33,7 +33,7 @@ function DetailView({ productData }: Props): JSX.Element {
 
             {productData.prices ? (
               <>
-                <p className="text-5xl opacity-80">{price}€</p>
+                <p className="text-2xl md:text-5xl opacity-80">{price}€</p>
                 <SizesAndPrices
                   handleSizeChange={setPrice}
                   sizesPricesData={productData.prices}
@@ -53,12 +53,13 @@ function DetailView({ productData }: Props): JSX.Element {
           </div>
         </div>
       ) : (
+        //mobile
         <div>
           <div className="w-[85%] mx-auto mt-10">
             <div className="h-[25rem] sm:h-[25rem]">
               <img src={productData.imageSrc} className={imageCover} />
             </div>
-            <p className="py-[3rem] text-4xl text-center">
+            <p className="py-[2rem] text-4xl text-center">
               {productData.title}
             </p>
 
@@ -73,7 +74,7 @@ function DetailView({ productData }: Props): JSX.Element {
                 </div>
               </>
             ) : (
-              <p className="text-5xl opacity-80 mx-auto">
+              <p className="text-center text-3xl opacity-80 pb-4 md:pb-8">
                 {productData.price}€
               </p>
             )}
