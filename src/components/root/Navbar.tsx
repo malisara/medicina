@@ -135,7 +135,10 @@ function Navbar({}): JSX.Element {
                     to={products_url.url}
                     className="px-2 py-3"
                     key={products_url.title}
-                    onClick={() => setOpenSubMenu(false)}
+                    onClick={() => {
+                      setMobileNavOpen(false);
+                      setOpenSubMenu(false);
+                    }}
                   >
                     <RxDotFilled className="inline mr-1" />
                     {products_url.title}
