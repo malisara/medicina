@@ -104,7 +104,7 @@ function Hero(): JSX.Element {
                     >
                       <div
                         className="bg-primaryPurple bg-opacity-90 p-6 
-                        rounded-sm text-md w-1/2 md:w-fit md:text-xl"
+                        rounded-sm text-md w-[63%] md:w-fit md:text-xl"
                       >
                         {hero.text}.
                       </div>

@@ -33,8 +33,8 @@ function ProductsOverview(): JSX.Element {
                     className="h-[80vw] sm:h-[20rem] w-[20rem] 
                   object-cover md:mt-6 hover:opacity-80"
                   />
+                  <Button text={product_url.title} url={product_url.url} />
                 </NavLink>
-                <Button text={product_url.title} url={product_url.url} />
               </div>
             );
           })}
