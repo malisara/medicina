@@ -49,14 +49,14 @@ function Testemonials(): JSX.Element {
   }, [currentReview]);
 
   return (
-    <div className="mb-[15rem]">
+    <div className="mb-[5rem] md:mb-[15rem]">
       <div className="text-center text-3xl font-bold text-secondaryPurple">
         STRANKE PRAVIJO:
       </div>
 
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
         <ImQuotesLeft
-          className="text-secondaryPurple text-[3rem] 
+          className="text-secondaryPurple text-[2rem] md:text-[3rem] 
           absolute top-0 riht-0"
         />
         <motion.div
@@ -66,13 +66,13 @@ function Testemonials(): JSX.Element {
           exit={{ opacity: 0, x: 50 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="px-10 py-[5rem] italic text-center text-lg">
+          <div className="px-10 py-[2rem] md:py-[5rem] italic text-center text-lg">
             {reviewToDisplay.comment}
             <div className="mt-5 font-semibold">{reviewToDisplay.customer}</div>
           </div>
         </motion.div>
         <ImQuotesRight
-          className="text-secondaryPurple text-[3rem] 
+          className="text-secondaryPurple text-[2rem] md:text-[3rem] 
           absolute right-0 bottom-0"
         />
       </div>
