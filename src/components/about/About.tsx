@@ -1,4 +1,5 @@
 import AboutImg from "../../assets/bee_about.jpg";
+import Title from "../Title";
 import Contact from "./Contact";
 
 const aboutText = [
@@ -43,26 +44,24 @@ const aboutText = [
 
 function About(): JSX.Element {
   return (
-    <div className="mt-[2rem] flex-col w-[85%] md:w-[60%] mx-auto">
+    <div className="mt-[2rem] w-[85%] md:w-[60%] mx-auto">
       <img
         src={AboutImg}
-        className="h-[20rem] md:h-[40rem] w-full object-cover"
+        className="h-[20rem] md:h-[40rem] w-full 
+        object-cover mb-[2rem] md:mb-[4rem]"
       />
 
-      <div className="md:text-justify mt-[4rem]">
-        <div className="text-center text-6xl">O nas</div>
+      <Title title="O nas" />
 
-        {aboutText.map((paragraph, i) => (
-          <div
-            className="mx-auto text-xl leading-8 
-          md:leading-[3rem] mt-[2rem]"
-            key={i}
-          >
-            {paragraph.text}
-          </div>
-        ))}
-      </div>
-
+      {aboutText.map((paragraph, i) => (
+        <div
+          className="mx-auto text-xl leading-8 mb-[2rem]
+          md:leading-[3rem] mt-[2rem] md:text-justify"
+          key={i}
+        >
+          {paragraph.text}
+        </div>
+      ))}
       <Contact />
     </div>
   );

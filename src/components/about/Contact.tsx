@@ -18,11 +18,11 @@ function Contact(): JSX.Element {
           <p className="text-center mb-4 md:mb-6 text-2xl md:text-4xl">
             Kontakt
           </p>
-          <div className={`${contactDivStyle}`}>
+          <div className={contactDivStyle}>
             <AiOutlinePhone />
             <p>0123456789</p>
           </div>
-          <div className={`${contactDivStyle}`}>
+          <div className={contactDivStyle}>
             <AiOutlineMail />
             <p>fake.mail@mail.com</p>
           </div>

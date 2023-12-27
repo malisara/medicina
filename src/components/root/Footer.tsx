@@ -8,11 +8,11 @@ function Footer(): JSX.Element {
     gap-3 md:gap-9 text-md md:text-lg flex-col md:flex-row
     items-center py-[1rem] md:py-[2rem] bottom-0 text-white"
     >
-      <a href="#" className={`${soMeLinkStyle}`}>
+      <a href="#" className={soMeLinkStyle}>
         <BsFacebook />
         <p>medecina_ig</p>
       </a>
-      <a href="#" className={`${soMeLinkStyle}`}>
+      <a href="#" className={soMeLinkStyle}>
         <BsInstagram />
         <p>medicina_fb</p>
       </a>
