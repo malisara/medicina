@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { products_urls } from "../../utils/urls";
-import Title from "../../components/Title";
-import Button from "../Button";
 
-//TODO change title color &|| style
+import Button from "../Button";
+import Title from "../../components/Title";
+import { products_urls } from "../../utils/urls";
+
 function ProductsOverview(): JSX.Element {
   return (
-    <div>
+    <>
+      {/* top part of separator */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#e8d1eb"
@@ -14,11 +15,13 @@ function ProductsOverview(): JSX.Element {
           d="M0,224L1440,64L1440,320L0,320Z"
         ></path>
       </svg>
+
+      {/* main part */}
       <div className="bg-primaryPurple">
         <Title title="Ponudba" />
         <div
-          className="flex flex-wrap justify-center gap-8 mt-10 w-[80%]
-          md:w-[60%] mx-auto flex-col md:flex-row"
+          className="flex flex-wrap justify-center gap-8 mt-10 
+          w-[80%] md:w-[60%] mx-auto flex-col md:flex-row"
         >
           {products_urls.map((product_url) => {
             return (
@@ -29,9 +32,9 @@ function ProductsOverview(): JSX.Element {
                 <NavLink to={product_url.url}>
                   <img
                     src={product_url.img}
-                    alt=""
+                    alt={product_url.title}
                     className="h-[80vw] sm:h-[20rem] w-[20rem] 
-                  object-cover md:mt-6 hover:opacity-80"
+                    object-cover md:mt-6"
                   />
                   <Button text={product_url.title} url={product_url.url} />
                 </NavLink>
@@ -40,6 +43,8 @@ function ProductsOverview(): JSX.Element {
           })}
         </div>
       </div>
+
+      {/* bottom part of separator */}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#e8d1eb"
@@ -47,7 +52,7 @@ function ProductsOverview(): JSX.Element {
           d="M0,192L1440,128L1440,0L0,0Z"
         ></path>
       </svg>
-    </div>
+    </>
   );
 }
 

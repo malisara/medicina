@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+
+import Title from "../Title";
 //TODO make mt component
 
 const reviews = [
@@ -35,6 +37,8 @@ const reviews = [
   },
 ];
 
+const quoteStyle = "text-secondaryPurple text-[2rem] md:text-[3rem] absolute";
+
 function Testemonials(): JSX.Element {
   const [currentReview, setCurrentReview] = useState<number>(0);
   const reviewToDisplay = reviews.filter(
@@ -50,15 +54,11 @@ function Testemonials(): JSX.Element {
 
   return (
     <div className="mb-[5rem] md:mb-[15rem]">
-      <div className="text-center text-3xl font-bold text-secondaryPurple">
-        STRANKE PRAVIJO:
-      </div>
+      <Title title="Stranke pravijo:" light={true} />
+      {/* TODO better text */}
 
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
-        <ImQuotesLeft
-          className="text-secondaryPurple text-[2rem] md:text-[3rem] 
-          absolute top-0 riht-0"
-        />
+        <ImQuotesLeft className={`${quoteStyle} top-0`} />
         <motion.div
           key={currentReview}
           initial={{ opacity: 0, x: -70 }}
@@ -71,10 +71,7 @@ function Testemonials(): JSX.Element {
             <div className="mt-5 font-semibold">{reviewToDisplay.customer}</div>
           </div>
         </motion.div>
-        <ImQuotesRight
-          className="text-secondaryPurple text-[2rem] md:text-[3rem] 
-          absolute right-0 bottom-0"
-        />
+        <ImQuotesRight className={`${quoteStyle} right-0 bottom-0`} />
       </div>
 
       {/* indicators */}
