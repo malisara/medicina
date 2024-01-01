@@ -29,15 +29,17 @@ function ProductsOverview(): JSX.Element {
                 className="text-center flex flex-col items-center"
                 key={product_url.title}
               >
-                <NavLink to={product_url.url}>
-                  <img
-                    src={product_url.img}
-                    alt={product_url.title}
-                    className="h-[80vw] sm:h-[20rem] w-[20rem] 
-                    object-cover md:mt-6"
-                  />
+                <div className="w-[20rem]">
+                  <NavLink to={product_url.url}>
+                    <img
+                      src={product_url.img}
+                      alt={product_url.title}
+                      className="h-[80vw] sm:h-[20rem] 
+                    object-cover md:mt-6 w-full"
+                    />
+                  </NavLink>
                   <Button text={product_url.title} url={product_url.url} />
-                </NavLink>
+                </div>
               </div>
             );
           })}
