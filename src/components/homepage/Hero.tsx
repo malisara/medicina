@@ -9,7 +9,7 @@ import honeyOneImg from "../../assets/hero-honey-one.jpg";
 import honeyTwoImg from "../../assets/hero-honey-two.jpg";
 
 const flexCenter = "flex items-center justify-center";
-export const imageCover = "object-cover w-full h-full rounded-md";
+export const imageCoverStyle = "object-cover w-full h-full rounded-md";
 
 const heroImages = [
   //todo change dummy text
@@ -90,7 +90,7 @@ function Hero(): JSX.Element {
             .filter((hero) => hero.id === shownImageIndex)
             .map((hero) => {
               return (
-                <div className={imageCover} key={"animate-div"}>
+                <div className={imageCoverStyle} key={"animate-div"}>
                   <motion.img
                     variants={variants}
                     initial="enter"
@@ -103,7 +103,7 @@ function Hero(): JSX.Element {
                     custom={direction}
                     key={hero.id}
                     src={hero.src}
-                    className={imageCover}
+                    className={imageCoverStyle}
                   />
                   <div
                     className={`absolute inset-0 flex-col 

@@ -1,4 +1,4 @@
-import { imageCover } from "../homepage/Hero";
+import { imageCoverStyle } from "../homepage/Hero";
 import { recipes } from "../../blogText/recipes";
 
 const subtytleSyle = "text-xl font-bold text-secondaryPurple py-6 md:py-7";
@@ -14,7 +14,7 @@ function Recipes(): JSX.Element {
         >
           {/* Image */}
           <div className="w-full h-[20rem] md:h-[30rem]">
-            <img src={recipe.image} className={imageCover} />
+            <img src={recipe.image} className={imageCoverStyle} />
           </div>
 
           {/* Title */}

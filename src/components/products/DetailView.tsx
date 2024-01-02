@@ -1,6 +1,7 @@
 import { useState } from "react";
+
 import useMediaQuery from "../../hooks/useMediaQuery";
-import { imageCover } from "../homepage/Hero";
+import { imageCoverStyle } from "../homepage/Hero";
 import SizesAndPrices from "./SizesAndPrices";
 import { ProductDataType } from "../../typeAliases";
 
@@ -11,7 +12,7 @@ function DetailView({ productData }: Props): JSX.Element {
   const [price, setPrice] = useState<number>(0);
 
   return (
-    <div>
+    <>
       {isDesktop ? (
         <div className="flex">
           <div
@@ -22,7 +23,7 @@ function DetailView({ productData }: Props): JSX.Element {
               className="transform -translate-x-[-40%] 
             -translate-y-[-10%] h-[40rem]"
             >
-              <img src={productData.imageSrc} className={imageCover} />
+              <img src={productData.imageSrc} className={imageCoverStyle} />
             </div>
           </div>
           <div
@@ -57,7 +58,7 @@ function DetailView({ productData }: Props): JSX.Element {
         <div>
           <div className="w-[85%] mx-auto mt-10">
             <div className="h-[25rem] sm:h-[25rem]">
-              <img src={productData.imageSrc} className={imageCover} />
+              <img src={productData.imageSrc} className={imageCoverStyle} />
             </div>
             <p className="py-[2rem] text-4xl text-center">
               {productData.title}
@@ -89,7 +90,7 @@ function DetailView({ productData }: Props): JSX.Element {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

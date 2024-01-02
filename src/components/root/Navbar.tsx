@@ -112,7 +112,7 @@ function Navbar({}): JSX.Element {
             {openSubMenu ? (
               <button
                 onClick={() => setOpenSubMenu(!openSubMenu)}
-                className="mt-10 flex justify-start items-center"
+                className="mt-10 flex items-center"
               >
                 IZDELKI <AiOutlineRight className="inline ml-2" />
               </button>
@@ -127,7 +127,7 @@ function Navbar({}): JSX.Element {
 
             {openSubMenu && (
               <div
-                className="mt-3 mx-auto gap-3
+                className="mt-3 mx-[15%] gap-3
                flex flex-col w-44"
               >
                 {products_urls.map((products_url) => (
