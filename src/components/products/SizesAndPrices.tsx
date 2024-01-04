@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { SiZePriceType } from "../../typeAliases";
+import { SiZeAndPrice } from "../../interfaces";
 
 const activeBtnStyle =
   "bg-secondaryPurple text-white hover:bg-opacity-90 hover:border-white";
@@ -9,7 +9,7 @@ const inactiveBtnStyle =
   hover:bg-secondaryPurple hover:text-white";
 
 type Props = {
-  sizesPricesData: SiZePriceType[];
+  sizesPricesData: SiZeAndPrice[];
   handleSizeChange: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -19,7 +19,7 @@ function SizesAndPrices({
 }: Props): JSX.Element {
   const [chosenSizeIndex, setChosenSizeIndex] = useState<number>(0);
 
-  function handleClick(element: SiZePriceType): void {
+  function handleClick(element: SiZeAndPrice): void {
     setChosenSizeIndex(element.index);
     handleSizeChange(element.price);
   }

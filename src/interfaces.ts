@@ -1,13 +1,13 @@
-export type SiZePriceType = {
+export interface SiZeAndPrice {
   index: number;
   size: string;
   price: number;
-};
+}
 
-export type ProductDataType = {
+export interface Product {
   title: string;
   text: JSX.Element[];
   imageSrc: string;
   price?: number;
-  prices?: SiZePriceType[];
-};
+  prices?: SiZeAndPrice[];
+}
