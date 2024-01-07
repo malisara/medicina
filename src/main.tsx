@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
-import Home from "./components/Home";
+import { createHashRouter, RouterProvider } from "react-router-dom";
+
 import About from "./components/about/About";
+import Bees from "./components/products/Bees";
 import Blog from "./components/blog/Blog";
+import Candles from "./components/products/Candles";
+import Home from "./components/Home";
 import Honey from "./components/products/Honey";
 import Pollen from "./components/products/Pollen";
-import Candles from "./components/products/Candles";
+import NotFound from "./components/NotFound";
 import Wax from "./components/products/Wax";
-import Bees from "./components/products/Bees";
+import "./index.css";
 
 const container = document.getElementById("root") as HTMLDivElement;
 
@@ -18,7 +20,7 @@ const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
-    // errorElement  <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
       { path: "/o-nas", element: <About /> },
