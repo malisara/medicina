@@ -1,5 +1,5 @@
 import DetailView from "./DetailView";
-import WaxImage from "../../assets/product_wax.jpg";
+import WaxImage from "../../assets/product-wax.jpg";
 
 const text = [
   <p>

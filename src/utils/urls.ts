@@ -1,9 +1,8 @@
-import Bees from "../assets/product_bees.png";
-import Candle from "../assets/product_candle.jpg";
-import Honey from "../assets/product_honey.jpg";
-import Pollen from "../assets/product_pollen.jpg";
-
-import Wax from "../assets/product_wax.jpg";
+import Bees from "../assets/product-bees.png";
+import Candle from "../assets/product-candle.jpg";
+import Honey from "../assets/product-honey.jpg";
+import Pollen from "../assets/product-pollen.jpg";
+import Wax from "../assets/product-wax.jpg";
 
 export const products_urls = [
   { title: "Cvetlični med", img: Honey, url: "/cvetlicni-med" },

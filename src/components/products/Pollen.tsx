@@ -1,5 +1,5 @@
 import DetailView from "./DetailView";
-import PollenImage from "../../assets/product_pollen.jpg";
+import PollenImage from "../../assets/product-pollen.jpg";
 
 const text = [
   <p>

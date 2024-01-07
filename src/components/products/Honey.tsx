@@ -1,5 +1,5 @@
 import DetailView from "./DetailView";
-import HoneyImage from "../../assets/product_honey.jpg";
+import HoneyImage from "../../assets/product-honey.jpg";
 
 const text = [
   <p>

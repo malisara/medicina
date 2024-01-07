@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 
 import Title from "../Title";
-//TODO make mt component
 
 const reviews = [
   {
@@ -55,7 +54,6 @@ function Testemonials(): JSX.Element {
   return (
     <div className="mb-[5rem] md:mb-[15rem]">
       <Title title="Stranke pravijo:" light={true} />
-      {/* TODO better text */}
 
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
         <ImQuotesLeft className={`${quoteStyle} top-0`} />

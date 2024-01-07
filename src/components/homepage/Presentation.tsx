@@ -1,6 +1,5 @@
 import Title from "../Title";
 
-// hero: mt-[38rem] lg:mt-[48rem]
 const presentationText = (
   <p>
     Pri Medičini se z ljubeznijo in predanostjo posvečamo pridelavi

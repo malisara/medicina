@@ -14,7 +14,6 @@ import { products_urls } from "../../utils/urls";
 const urls = [
   { title: "o nas", url: "o-nas" },
   { title: "blog", url: "blog" },
-  //   { title: "kontakt", url: "kontakt" },
 ];
 
 function Navbar({}): JSX.Element {
@@ -45,8 +44,9 @@ function Navbar({}): JSX.Element {
         className="bg-secondaryPurple flex text-lg items-center
          text-white justify-between px-10 py-4"
       >
-        <NavLink to="/">Logo</NavLink>
+        <NavLink to="/">MEDIČINA</NavLink>
         {isDesktop ? (
+          // desktop - right side of nav
           <>
             <div className="flex w-full px-12 gap-9">
               {urls.map((url) => (
@@ -81,6 +81,7 @@ function Navbar({}): JSX.Element {
             </div>
           </>
         ) : (
+          // mobile - right side of nav
           <div className="flex">
             <button onClick={() => setMobileNavOpen(!mobileNavIsOpen)}>
               <RxHamburgerMenu />

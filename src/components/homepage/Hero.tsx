@@ -12,7 +12,6 @@ const flexCenter = "flex items-center justify-center";
 export const imageCoverStyle = "object-cover w-full h-full rounded-md";
 
 const heroImages = [
-  //todo change dummy text
   {
     id: 0,
     src: beeOneImg,
