@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
-import { imageCoverStyle } from "../homepage/Hero";
 import { Product } from "../../interfaces";
 import SizesAndPrices from "./SizesAndPrices";
+
+export const imageCoverStyle = "object-cover w-full h-full rounded-md";
 
 type Props = { productData: Product };
 

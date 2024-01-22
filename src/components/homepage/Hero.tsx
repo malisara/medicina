@@ -9,7 +9,6 @@ import honeyOneImg from "../../assets/hero-honey-one.jpg";
 import honeyTwoImg from "../../assets/hero-honey-two.jpg";
 
 const flexCenter = "flex items-center justify-center";
-export const imageCoverStyle = "object-cover w-full h-full rounded-md";
 
 const heroImages = [
   {
@@ -81,7 +80,7 @@ function Hero(): JSX.Element {
   }
 
   return (
-    <div className="absolute w-full top-[6.5rem]">
+    <div className="absolute w-full">
       <div className="h-[40rem] overflow-hidden lg:h-[50rem]">
         <AnimatePresence custom={direction} initial={false}>
           {/* Hero Images */}
@@ -89,7 +88,7 @@ function Hero(): JSX.Element {
             .filter((hero) => hero.id === shownImageIndex)
             .map((hero) => {
               return (
-                <div className={imageCoverStyle} key={"animate-div"}>
+                <div className="object-cover w-full h-full" key={"animate-div"}>
                   <motion.img
                     variants={variants}
                     initial="enter"
@@ -102,7 +101,7 @@ function Hero(): JSX.Element {
                     custom={direction}
                     key={hero.id}
                     src={hero.src}
-                    className={imageCoverStyle}
+                    className="object-cover w-full h-full"
                   />
                   <div
                     className={`absolute inset-0 flex-col 
