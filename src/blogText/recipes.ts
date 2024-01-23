@@ -2,7 +2,16 @@ import Biscuit from "../assets/blog/biscuits.jpg";
 import Chicken from "../assets/blog/chicken.jpg";
 import Cookies from "../assets/blog/cookies.jpg";
 
-export const recipes = [
+interface Recipe {
+  title: string;
+  image: string;
+  ingredients: string[];
+  steps: string[];
+  time: string;
+  persons: number;
+}
+
+export const recipes: Recipe[] = [
   {
     title: "Medeni ovseni piškoti",
     image: Cookies,
