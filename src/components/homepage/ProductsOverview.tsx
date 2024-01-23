@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
 import Button from "../Button";
@@ -23,9 +24,16 @@ function ProductsOverview(): JSX.Element {
           className="flex flex-wrap justify-center gap-8 mt-10 
           w-[80%] md:w-[60%] mx-auto flex-col md:flex-row"
         >
-          {products_urls.map((product_url) => {
+          {products_urls.map((product_url, index) => {
             return (
-              <div
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.3 * (index + 1) }}
+                variants={{
+                  visible: { opacity: 1, y: 0 },
+                  hidden: { opacity: 0, y: 40 },
+                }}
                 className="text-center flex flex-col items-center"
                 key={product_url.title}
               >
@@ -40,7 +48,7 @@ function ProductsOverview(): JSX.Element {
                   </NavLink>
                   <Button text={product_url.title} url={product_url.url} />
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

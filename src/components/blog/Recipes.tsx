@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { recipes } from "../../blogText/recipes";
 
 const subtytleSyle = "text-xl font-bold text-secondaryPurple py-6 md:py-7";
@@ -6,7 +8,15 @@ function Recipes(): JSX.Element {
   return (
     <>
       {recipes.map((recipe, i) => (
-        <div
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 * (i + 1) }}
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 40 },
+          }}
           className="border-2 w-[90%] md:w-[60%] lg:w-[60%] xl:w-[40%] 
          shadow-2xl p-5 border-primaryPurple my-[4rem] mx-auto"
           key={i}
@@ -56,7 +66,7 @@ function Recipes(): JSX.Element {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </>
   );

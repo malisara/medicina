@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import Title from "../Title";
 
 const presentationText = (
@@ -19,7 +21,14 @@ const presentationText = (
 
 function Presentation(): JSX.Element {
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration: 0.6 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 40 },
+      }}
       className="mt-[44rem] lg:mt-[60rem] px-10 text-center
        flex flex-col items-center"
     >
@@ -30,7 +39,7 @@ function Presentation(): JSX.Element {
       >
         {presentationText}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

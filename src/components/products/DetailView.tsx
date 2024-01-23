@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 import useMediaQuery from "../../hooks/useMediaQuery";
@@ -26,7 +27,17 @@ function DetailView({ productData }: Props): JSX.Element {
               className="transform -translate-x-[-40%] 
               -translate-y-[-10%] h-[40rem]"
             >
-              <img src={productData.imageSrc} className={imageCoverStyle} />
+              <motion.img
+                src={productData.imageSrc}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ duration: 0.7 }}
+                variants={{
+                  visible: { opacity: 1, x: 0 },
+                  hidden: { opacity: 0.6, x: -60 },
+                }}
+                className={imageCoverStyle}
+              />
             </div>
           </div>
 

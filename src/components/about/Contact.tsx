@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 
@@ -17,7 +18,16 @@ function Contact(): JSX.Element {
 
       {/* content */}
       <div className="bg-primaryPurple">
-        <div className="flex flex-col gap-7 text-lg px-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.9 }}
+          variants={{
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0.5, x: -60 },
+          }}
+          className="flex flex-col gap-7 text-lg px-10"
+        >
           <h2 className="text-center mb-4 md:mb-6 text-2xl md:text-4xl">
             Kontakt
           </h2>
@@ -47,7 +57,7 @@ function Contact(): JSX.Element {
             <BsInstagram />
             <p>Ig</p>
           </a>
-        </div>
+        </motion.div>
       </div>
 
       {/* seperator bottom part */}

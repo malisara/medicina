@@ -52,7 +52,16 @@ function Testemonials(): JSX.Element {
   }, [currentReview]);
 
   return (
-    <div className="mb-[5rem] md:mb-[15rem]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ duration: 0.5 }}
+      variants={{
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 20 },
+      }}
+      className="mb-[5rem] md:mb-[15rem]"
+    >
       <Title title="Stranke pravijo:" light={true} />
 
       <div className="mt-10 w-[85%] md:w-[50%] mx-auto relative">
@@ -83,7 +92,7 @@ function Testemonials(): JSX.Element {
           />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import AboutImg from "../../assets/about-bee.jpg";
 import Contact from "./Contact";
 import Title from "../Title";
@@ -41,14 +43,22 @@ function About(): JSX.Element {
 
       <Title title="O nas" />
 
-      {aboutText.map((paragraph, i) => (
-        <div
+      {aboutText.map((paragraph, index) => (
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 * (index + 1) }}
+          variants={{
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: -20 },
+          }}
           className="text-xl leading-8 mb-[2.5rem]
-          md:leading-[3rem] md:text-justify"
-          key={i}
+         md:leading-[3rem] md:text-justify"
+          key={index}
         >
           {paragraph}
-        </div>
+        </motion.div>
       ))}
       <Contact />
     </div>
