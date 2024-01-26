@@ -25,12 +25,16 @@ const router = createHashRouter([
       { index: true, element: <Home /> },
       { path: "/o-nas", element: <About /> },
       { path: "/blog", element: <Blog /> },
-
-      { path: "/cvetlicni-med", element: <Honey /> },
-      { path: "/cvetni-prah", element: <Pollen /> },
-      { path: "/svece", element: <Candles /> },
-      { path: "/vosek", element: <Wax /> },
-      { path: "/cebelje-druzine", element: <Bees /> },
+      {
+        path: "/izdelki",
+        children: [
+          { path: "cvetlicni-med", element: <Honey /> },
+          { path: "cvetni-prah", element: <Pollen /> },
+          { path: "svece", element: <Candles /> },
+          { path: "vosek", element: <Wax /> },
+          { path: "cebelje-druzine", element: <Bees /> },
+        ],
+      },
     ],
   },
 ]);
