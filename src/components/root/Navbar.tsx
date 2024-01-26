@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useMatch } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import {
@@ -21,6 +21,7 @@ function Navbar({}): JSX.Element {
   const [mobileNavIsOpen, setMobileNavOpen] = useState<boolean>(false);
   const [openSubMenu, setOpenSubMenu] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
+  const isIzdelkiActive = useMatch("/izdelki/*");
 
   useEffect(() => {
     setOpenSubMenu(false);
@@ -44,18 +45,34 @@ function Navbar({}): JSX.Element {
         className="bg-secondaryPurple flex text-lg items-center
          text-white justify-between px-10 py-4"
       >
-        <NavLink to="/">MEDIČINA</NavLink>
+        <NavLink
+          to="/"
+          style={({ isActive }) => ({
+            color: isActive ? "#52525b" : "#ffffff",
+          })}
+        >
+          MEDIČINA
+        </NavLink>
         {isDesktop ? (
           // desktop - right side of nav
           <>
             <div className="flex w-full px-12 gap-9">
               {urls.map((url) => (
-                <NavLink to={url.url} key={url.title}>
+                <NavLink
+                  to={url.url}
+                  key={url.title}
+                  style={({ isActive }) => ({
+                    color: isActive ? "#52525b" : "#ffffff",
+                  })}
+                >
                   {url.title.toUpperCase()}
                 </NavLink>
               ))}
               <div className="relative">
-                <button onClick={() => setOpenSubMenu(!openSubMenu)}>
+                <button
+                  onClick={() => setOpenSubMenu(!openSubMenu)}
+                  className={`${isIzdelkiActive && "text-gray-600"}`}
+                >
                   IZDELKI <AiOutlineDown className="inline" />
                 </button>
                 {openSubMenu && (
@@ -96,10 +113,20 @@ function Navbar({}): JSX.Element {
             className="h-[100%] bg-secondaryPurple w-full fixed top-0 flex
           flex-col px-16 pt-[4.5rem] z-10 text-white"
           >
-            <button onClick={() => setMobileNavOpen(false)}>
-              <AiOutlineCloseCircle className="float-right" />
-            </button>
-            <div className="flex flex-col items-start gap-10">
+            <div className="flex justify-between items-center">
+              <NavLink
+                to="/"
+                onClick={() => setMobileNavOpen(false)}
+                className="text-xl"
+              >
+                MEDIČINA
+              </NavLink>
+
+              <button onClick={() => setMobileNavOpen(false)}>
+                <AiOutlineCloseCircle className="float-right text-xl" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-10 mt-12">
               {urls.map((url) => (
                 <NavLink
                   to={url.url}
@@ -126,6 +153,7 @@ function Navbar({}): JSX.Element {
               </button>
             )}
 
+            {/* mobile -items submenu */}
             {openSubMenu && (
               <div
                 className="mt-3 mx-[15%] gap-3
