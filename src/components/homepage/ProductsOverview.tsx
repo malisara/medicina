@@ -37,7 +37,7 @@ function ProductsOverview(): JSX.Element {
                 className="text-center flex flex-col items-center"
                 key={product_url.title}
               >
-                <div className="w-[20rem]">
+                <div className="w-full md:w-[20rem]">
                   <NavLink to={product_url.url}>
                     <img
                       src={product_url.img}

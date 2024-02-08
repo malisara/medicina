@@ -1,4 +1,4 @@
-import Bees from "../assets/product-bees.png";
+import Bees from "../assets/product-bees.jpg";
 import Candle from "../assets/product-candle.jpg";
 import Honey from "../assets/product-honey.jpg";
 import Pollen from "../assets/product-pollen.jpg";
